@@ -1,0 +1,55 @@
+button {
+  width: 50px;
+  height: 30px;
+}
+.city {
+  padding-top: 10px;
+}
+.date {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  font-family: "Nunito", sans-serif;
+  padding-top: 10px;
+}
+p {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 30px;
+  font-family: "Nunito", sans-serif;
+}
+.temperature-today {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 40px;
+  font-family: "Nunito", sans-serif;
+  padding-top: 40px;
+}
+img {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  width: 150px;
+  padding: 0;
+}
+.other-today {
+  display: block;
+  margin: 0 auto;
+  padding-top: 45px;
+  text-align: center;
+  font-size: 25px;
+  font-family: "Nunito", sans-serif;
+}
+.maybe {
+  padding-top: 25px;
+}
+.day {
+  font-family: "Nunito", sans-serif;
+  display: block;
+  margin: 0 auto;
+  padding-top: 5px;
+  text-align: center;
+  font-size: 20px;
+}

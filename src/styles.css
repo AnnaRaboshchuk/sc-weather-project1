@@ -53,3 +53,10 @@ img {
   text-align: center;
   font-size: 20px;
 }
+
+.source {
+  display: block;
+  text-align: center;
+  padding: 20px 0px;
+
+}

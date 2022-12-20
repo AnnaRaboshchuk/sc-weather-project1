@@ -63,7 +63,9 @@ img {
 .source {
   display: block;
   text-align: center;
-  padding: 20px 0px;
+  margin: 0 auto;
+  font-family: "Nunito", sans-serif;
+  font-style: italic;
 }
 
 .container {

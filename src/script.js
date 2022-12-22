@@ -7,7 +7,7 @@ let days = [
   "Wednesday",
   "Thursday",
   "Friday",
-  "Saturday"
+  "Saturday",
 ];
 let day = days[now.getDay()];
 let date = now.getDate();
@@ -23,7 +23,7 @@ let months = [
   "September",
   "October",
   "November",
-  "December"
+  "December",
 ];
 let month = now.getMonth();
 let year = now.getFullYear();
@@ -50,14 +50,21 @@ let cityInput = document.querySelector("#form_search");
 cityInput.addEventListener("submit", enterCity);
 
 //real temperature
-let apiKey = "1ee4264117b73d2263eecd562f31ef5c";
-let citySearch = document.querySelector("#c_input");
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${citySearch.value}&appid=${apiKey}&units=metric`;
 
 function showTemperature(response) {
-  console.log(response.data.main.temp);
-  let temperature = Math.round(response.data.main.temp);
+  console.log(response.data);
   let tempHeader = document.querySelector("#temperature");
-  tempHeader.innerHTML = temperature;
+  let cityElement = document.querySelector("#city");
+  let humidityElement = document.querySelector("#humidity");
+  let windElement = document.querySelector("#wind");
+  tempHeader.innerHTML = Math.round(response.data.temperature.current);
+  cityElement.innerHTML = response.data.city;
+  humidityElement.innerHTML = response.data.temperature.humidity;
+  windElement.innerHTML = Math.round(response.data.wind.speed);
 }
+
+let apiKey = "fa83f6abf9f3cb059b4c510t1c4bof9a";
+let citySearch = document.querySelector("#c_input");
+let apiUrl = `https://api.shecodes.io/weather/v1/current?query=London&key=${apiKey}&units=metric`;
+
 axios.get(apiUrl).then(showTemperature);

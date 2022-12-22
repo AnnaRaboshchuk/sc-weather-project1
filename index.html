@@ -35,19 +35,19 @@
       <div class="today">
         <h3 class="date">Date, Time</h3>
         <p id="city_in">
-          Today in <span id="city"> New York</span> be ready for
+          Today in <span id="city"></span> be ready for
         </p>
       </div>
       <div class="row">
-        <div id="temperature" class="col temperature-today">
-          25 <a href="#" class="celsius" id="c-link">°C / °F</a>
+        <div class="col temperature-today">
+          <span id="temperature" ></span> <a href="#" class="celsius" id="c-link">°C / °F</a>
         </div>
         <div class="col image-today">
           <img src="images/Sun1.png" alt="sun" />
         </div>
         <div class="col other-today">
-          Precipitation 75% <br />
-          Wind 5 km/h
+          Humidity <span id="humidity"></span> % <br />
+          Wind <span id="wind"></span> km/h
         </div>
       </div>
       <div>
@@ -62,9 +62,14 @@
       </div>
     </div>
     <div class="source">
-      <a href="https://github.com/AnnaRaboshchuk/sc-weather-project1.git" class="source_code" target="_blank">Open source-code</a><span> by Anna Raboshchuk</span>
-      </div>
-    
+      <a
+        href="https://github.com/AnnaRaboshchuk/sc-weather-project1.git"
+        class="source_code"
+        target="_blank"
+        >Open source-code</a
+      ><span> by Anna Raboshchuk</span>
+    </div>
+
     <script src="src/script.js"></script>
   </body>
 </html>

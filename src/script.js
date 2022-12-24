@@ -57,14 +57,23 @@ function showTemperature(response) {
   let cityElement = document.querySelector("#city");
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
+  let descriptionElement = document.querySelector("#description");
+  let mainIcon = document.querySelector("#icon");
   tempHeader.innerHTML = Math.round(response.data.temperature.current);
   cityElement.innerHTML = response.data.city;
   humidityElement.innerHTML = response.data.temperature.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
+  descriptionElement.innerHTML = response.data.condition.description;
+  mainIcon.setAttribute(
+    "src",
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
+  );
+  mainIcon.setAttribute("alt", response.data.condition.description);
 }
 
 let apiKey = "fa83f6abf9f3cb059b4c510t1c4bof9a";
 let citySearch = document.querySelector("#c_input");
-let apiUrl = `https://api.shecodes.io/weather/v1/current?query=London&key=${apiKey}&units=metric`;
+let city = "Kyiv";
+let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
 
 axios.get(apiUrl).then(showTemperature);

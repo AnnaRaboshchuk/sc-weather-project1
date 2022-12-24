@@ -30,6 +30,20 @@ p {
   font-weight: bold;
   padding-top: 50px;
 }
+
+.temperature-today .active {
+  color: #5F6368;
+  cursor: default;
+  text-decoration: none;
+}
+
+.temperature-today .fahrenheit {
+  text-decoration: none;
+}
+
+.temperature-today .active:hover {
+  text-decoration: none;
+}
 img {
   display: block;
   margin: 0 auto;

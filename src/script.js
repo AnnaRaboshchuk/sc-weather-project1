@@ -40,14 +40,25 @@ let current = document.querySelector("h3.date");
 current.innerHTML = `${day}, ${date} ${months[month]} ${year} , ${hours}:${minuts}`;
 
 //city search
+function search(city) {
+  let apiKey = "fa83f6abf9f3cb059b4c510t1c4bof9a";
+  let citySearch = document.querySelector("#c_input");
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showTemperature);
+}
+
 function enterCity(event) {
   event.preventDefault();
-  let showCity = document.querySelector("#city");
   let citySearch = document.querySelector("#c_input");
+  search(citySearch.value);
+  console.log(citySearch.value);
+  let showCity = document.querySelector("#city");
+  
   showCity.innerHTML = citySearch.value;
 }
 let cityInput = document.querySelector("#form_search");
 cityInput.addEventListener("submit", enterCity);
+
 
 //real temperature
 
@@ -71,9 +82,5 @@ function showTemperature(response) {
   mainIcon.setAttribute("alt", response.data.condition.description);
 }
 
-let apiKey = "fa83f6abf9f3cb059b4c510t1c4bof9a";
-let citySearch = document.querySelector("#c_input");
-let city = "Kyiv";
-let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
 
-axios.get(apiUrl).then(showTemperature);
+

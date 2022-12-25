@@ -97,3 +97,26 @@ img {
   font-size: 25px;
   text-align: center;
 }
+
+.forecast {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.forecast-date {
+  font-size: 16px;
+  color: #5F6368;
+}
+
+.forecast-temperature {
+  font-size: 13px;
+  color: #5F6368;
+}
+.forecast-temp-max {
+
+}
+
+.forecast-temp-min {
+  opacity: 0.7;
+
+}

@@ -112,3 +112,35 @@ fahrenheitLink.addEventListener("click", displayFTemperature);
 
 let celsiusLink = document.querySelector("#c-link");
 celsiusLink.addEventListener("click", displayCTemperature);
+
+//forecast
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast-i");
+  let days = ["Mon", "Tue", "Wed"];
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function(day){
+    forecastHTML =
+      forecastHTML +
+      `
+    <div class="col day">
+      <div class="forecast-date">${day}</div>
+      <div class="forecast-temperature">
+        <span class="forecast-temp-max">20 /</span>
+        <span class="forecast-temp-min">12°C</span>
+      </div>
+      <br />
+      <img
+        src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/few-clouds-day.png"
+        alt=""
+        id="icon"
+      />
+    </div>
+  `;
+  })
+  
+  
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+
+}
+displayForecast();

@@ -60,6 +60,13 @@ let cityInput = document.querySelector("#form_search");
 cityInput.addEventListener("submit", enterCity);
 
 //real temperature
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "fa83f6abf9f3cb059b4c510t1c4bof9a";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+  console.log(apiUrl);
+}
 
 function showTemperature(response) {
   console.log(response.data);
@@ -82,6 +89,8 @@ function showTemperature(response) {
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
   );
   mainIcon.setAttribute("alt", response.data.condition.description);
+
+  getForecast(response.data.coordinates);
 }
 
 //c to f
@@ -106,7 +115,7 @@ function displayCTemperature(event) {
 
 let celsiusTemperature = null;
 
-search("London");
+
 let fahrenheitLink = document.querySelector("#f-link");
 fahrenheitLink.addEventListener("click", displayFTemperature);
 
@@ -114,9 +123,12 @@ let celsiusLink = document.querySelector("#c-link");
 celsiusLink.addEventListener("click", displayCTemperature);
 
 //forecast
-function displayForecast() {
+function displayForecast(response) {
+  
   let forecastElement = document.querySelector("#forecast-i");
+
   let days = ["Mon", "Tue", "Wed"];
+
   let forecastHTML = `<div class="row">`;
   days.forEach(function(day){
     forecastHTML =
@@ -143,4 +155,5 @@ function displayForecast() {
   forecastElement.innerHTML = forecastHTML;
 
 }
-displayForecast();
+
+search("London");

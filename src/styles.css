@@ -48,7 +48,7 @@ img {
   display: block;
   margin: 0 auto;
   text-align: center;
-  width: 150px;
+  width: 170px;
   padding: 0;
 }
 .other-today {
@@ -117,4 +117,12 @@ img {
 .forecast-temp-min {
   opacity: 0.7;
 
+}
+
+#icons {
+  width: 80px;
+}
+
+br {
+  line-height: 0px;
 }

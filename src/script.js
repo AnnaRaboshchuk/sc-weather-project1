@@ -39,33 +39,52 @@ if (minuts < 10) {
 let current = document.querySelector("h3.date");
 current.innerHTML = `${day}, ${date} ${months[month]} ${year} , ${hours}:${minuts}`;
 
+//forecast date format
+function formatDay(timestamp) {
+  let date = new Date (timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+
+}
+
 //forecast
 function displayForecast(response) {
   console.log(response.data.daily);
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast-i");
 
   let forecastHTML = `<div class="row">`;
-  let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
+  
 
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `
       <div class="col day">
-       <div class="forecast-date">${day}</div>
+       <div class="forecast-date">${formatDay(forecastDay.time)}</div>
        <div class="forecast-temperature">
-        <span class="forecast-temp-max">20 /</span>
-        <span class="forecast-temp-min">12°C</span>
+        <span class="forecast-temp-max">${Math.round(
+          forecastDay.temperature.maximum
+        )}°C /</span>
+        <span class="forecast-temp-min">${Math.round(
+          forecastDay.temperature.minimum
+        )}°C</span>
        </div>
       <br />
       <img
-        src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/few-clouds-day.png"
+        src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
+          forecastDay.condition.icon
+        }.png"
         alt=""
-        width="20"
-        id="icon" 
+        id="icons"
+        width="10" 
       />
      </div>
   `;
+    }  
   });
 
   forecastHTML = forecastHTML + `</div>`;

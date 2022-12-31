@@ -1,7 +1,16 @@
+body {
+  background: radial-gradient(circle at 10% 20%, rgb(4, 159, 108) 0%, rgb(194, 254, 113) 90.1%);
+}
+
 button {
   width: 50px;
   height: 30px;
 }
+
+.btn, .btn-outline-dark {
+  padding-top: 4px;
+}
+
 
 .city {
   padding-top: 10px;
@@ -79,17 +88,19 @@ img {
   display: block;
   text-align: center;
   margin: 0 auto;
+  padding: 0px;
   font-family: "Nunito", sans-serif;
   font-style: italic;
 }
 
 .container {
   max-width: 600px;
-  margin: 30px auto;
+  margin: 15px auto;
   padding: 20px;
   border: 1px solid #d9dbe3;
   border-radius: 15px;
   color:#5F6368;
+  background: radial-gradient(circle at 10% 20%, rgb(128, 248, 174) 0%, rgb(223, 244, 148) 90%);;
 }
 
 .row {
@@ -123,6 +134,3 @@ img {
   width: 80px;
 }
 
-br {
-  line-height: 0px;
-}

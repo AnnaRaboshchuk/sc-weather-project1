@@ -37,7 +37,7 @@ if (minuts < 10) {
 }
 
 let current = document.querySelector("h3.date");
-current.innerHTML = `${day}, ${date} ${months[month]} ${year} , ${hours}:${minuts}`;
+current.innerHTML = `Last updated: ${day}, ${date} ${months[month]} ${year} , ${hours}:${minuts}`;
 
 //forecast date format
 function formatDay(timestamp) {
@@ -144,32 +144,6 @@ function showTemperature(response) {
   getForecast(response.data.coordinates);
 }
 
-//c to f
-function displayFTemperature(event) {
-  event.preventDefault();
-  let fTemperature = (celsiusTemperature * 9) / 5 + 32;
-  // remove the active class from the celsius link
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(fTemperature);
-}
 
-function displayCTemperature(event) {
-  event.preventDefault();
-  // remove the active class from the f link
-  celsiusLink.classList.add("active");
-  fahrenheitLink.classList.remove("active");
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);
-}
-
-let celsiusTemperature = null;
-
-let fahrenheitLink = document.querySelector("#f-link");
-fahrenheitLink.addEventListener("click", displayFTemperature);
-
-let celsiusLink = document.querySelector("#c-link");
-celsiusLink.addEventListener("click", displayCTemperature);
 
 search("London");
